@@ -6,7 +6,6 @@ int main() {
   scanf("%d",&rows);
   printf("Enter the number of columns\n");
   scanf("%d",&cols);
-  // int arr[rows][cols];
   int **arr = (int**)malloc(rows*sizeof(int*));
   for(int i=0;i<rows;i++){
     arr[i] = (int*)malloc(cols*sizeof(int*));

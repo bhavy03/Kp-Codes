@@ -4,8 +4,39 @@
 int main() {
   char input[100];
   scanf("%[^\n]%*c", input);
-  int rows = 4;
-  int cols = 3;
+
+  int noRow = 1;
+  int noCol = 0;
+  int maxCols = 0;
+  // int currentCols = 0;
+  for (int i = 0; input[i] != 0; i++) {
+    while (input[i] == '[') {
+      i++;
+    }
+    if (isdigit(input[i])) {
+      noCol++;
+      // printf("%d\n", noCol);
+    }
+    if (input[i] == ' ') {
+      continue;
+    }
+    if (input[i] == ']' && input[i + 1] == ',') {
+      if (noCol > maxCols) {
+        maxCols = noCol;
+      }
+      noCol = 0;
+    }
+    if (input[i] == ' ') {
+      continue;
+    }
+    if (input[i] == ',') {
+      noRow++;
+    }
+  }
+  // printf("%d %d", row, col);
+
+  int rows = noRow;
+  int cols = noCol;
   int **arr = (int **)malloc(sizeof(int) * rows);
   for (int i = 0; i < rows; i++) {
     arr[i] = (int *)malloc(sizeof(int) * cols);
@@ -15,9 +46,10 @@ int main() {
   for (int i = 0; i < rows; i++) {
     newArr[i] = (int *)malloc(sizeof(int) * cols);
   }
-  
+
   int row = 0;
   int col = 0;
+
   for (int i = 0; input[i] != 0; i++) {
     while (input[i] == '[' || input[i] == ']' || input[i] == ',' ||
            input[i] == ' ') {
@@ -32,12 +64,7 @@ int main() {
       }
     }
   }
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < cols; j++) {
-      printf("%d ", arr[i][j]);
-    }
-    printf("\n");
-  }
+
   // printf("%d",arr[0-2][0-2]);
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
@@ -87,12 +114,45 @@ int main() {
       }
     }
   }
-  printf("\n");
+
+  // printf("[");
+  // // int flag = 0;
+  // for (int i = 0; i < rows; i++) {
+  //   if (i == 0) {
+  //     printf("[");
+  //     for (int j = 0; j < cols; j++) {
+  //       printf("%d ", newArr[i][j]);
+  //       printf(" ");
+  //     }
+  //     printf("]");
+  //   }
+  //   if (i > 0 && i < rows) {
+  //     printf(",[");
+  //     for (int j = 0; j < cols; j++) {
+  //       printf("%d", newArr[i][j]);
+  //       printf(" ");
+  //     }
+  //     printf("]");
+  //   }
+  // }
+  // printf("]");
+  printf("[");
   for (int i = 0; i < rows; i++) {
+    int flag = 0;
+    printf("[");
     for (int j = 0; j < cols; j++) {
-      printf("%d ", newArr[i][j]);
+      if (flag == 0) {
+        printf("%d", newArr[i][j]);
+        flag = 1;
+      } else {
+        printf(" %d", newArr[i][j]);
+      }
     }
-    printf("\n");
+    if (i != rows - 1) {
+      printf("],");
+    } else
+      printf("]");
   }
+  printf("]");
   return 0;
 }

@@ -44,3 +44,11 @@
 // }
 // return 1; // Prime number
 // }
+
+
+// this is conversion of ascii values
+// printf("\n");
+// char ch = ('z'+3);
+// int a = (int)(ch);
+// printf("%d", a%122);
+// printf("%c",'a'+3-1);

@@ -28,6 +28,7 @@ int main()
     }
     char *start = sentence;
     char *end = sentence + stringLength(sentence) - 1;
+    // printf("%d %d %d", *start, *end,stringLength(sentence));
     while (*start == ' ')
         start++;
     while (end >= start && *end == ' ')

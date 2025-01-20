@@ -18,7 +18,7 @@ int main()
         index = input1[i] - 'a';
         // printf("%d\n", index);
         arr1[index] = arr1[index] + 1;
-        // arr1[index++]++;
+        // arr1[index]++;
     }
 
     for (int i = 0; input2[i] != '\0'; i++)

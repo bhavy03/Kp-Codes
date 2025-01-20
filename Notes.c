@@ -52,3 +52,8 @@
 // int a = (int)(ch);
 // printf("%d", a%122);
 // printf("%c",'a'+3-1);
+
+ // char ch = ('z' + 3);
+ // int a = (ch - 'a');
+ // printf("%d\n", a%26);
+ // printf("%c\n",(a%26)+'a');

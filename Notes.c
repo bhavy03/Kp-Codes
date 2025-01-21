@@ -69,3 +69,9 @@
 // scanf("%d", &r);
 // scanf("%d",&c);
 // these above two both work in same way no difference whether take input as newline or spaced
+
+// In C, when you pass a pointer (e.g., struct Node *head) to a function, the function receives a copy of the pointer,
+// not the actual pointer from the calling function. So, when you modify the pointer inside the function, 
+// you only modify the copy of the pointer within the function scope, not the original pointer in main.
+// Even though you modify the content of the node (e.g., ptr->data), 
+// the head pointer in main doesn't get updated to the new node unless you return the modified pointer back to main.

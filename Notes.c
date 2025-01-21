@@ -106,3 +106,13 @@
 //     *ptr = NULL; // Modify the pointer itself
 // }
 // modifyPointer(&p);
+
+// void modifyPointer(int **ptr,int **nptr) {
+//     // **ptr = 10; // Modify the value pointed to by the pointer
+//     *ptr = *nptr ; // Modify the pointer itself
+//     printf("%d",**ptr);
+// }
+// int x = 5,z =12;
+// int *p = &x; 
+// int *k = &z;
+// modifyPointer(&p,&k);

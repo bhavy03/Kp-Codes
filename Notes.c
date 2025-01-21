@@ -75,3 +75,34 @@
 // you only modify the copy of the pointer within the function scope, not the original pointer in main.
 // Even though you modify the content of the node (e.g., ptr->data), 
 // the head pointer in main doesn't get updated to the new node unless you return the modified pointer back to main.
+
+// Why the copy happens: In C, when you pass a pointer to a function, 
+// you are passing the value of the pointer (not the address of the original pointer). 
+// So inside the function, you're working with a local copy of the pointer. 
+// Any change to the pointer itself (e.g., changing where it points) 
+// won't affect the original pointer unless you return it and assign it back in main.
+
+// here is the example
+// setting ptr = NULL within the function only affects the local copy of the pointer. 
+// The original pointer p in main remains unchanged.
+// void modifyPointer(int *ptr) {
+//     *ptr = 10; // Modify the value pointed to by the pointer
+//     ptr = NULL; // Modify the pointer itself
+// }
+// int main() {
+//     int x = 5;
+//     int *p = &x; 
+//     printf("Before: x = %d, p = %p\n", x, p);
+//     modifyPointer(p);
+//     printf("After: x = %d, p = %p\n", x, p); 
+//     Before: x = 5, p = 0x7ffeefbff58c
+//     After: x = 10, p = 0x7ffeefbff58c
+//     return 0;
+// }
+
+// now this is how to modify the pointer also
+// void modifyPointer(int **ptr) {
+//     **ptr = 10; // Modify the value pointed to by the pointer
+//     *ptr = NULL; // Modify the pointer itself
+// }
+// modifyPointer(&p);

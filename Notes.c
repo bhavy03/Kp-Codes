@@ -55,3 +55,10 @@
 // int a = (ch - 'a');
 // printf("%d\n", a%26);
 // printf("%c\n",(a%26)+'a');
+
+// if in static 2D array function declaration the size of arr is not known
+// then we have to first write int size then int arr[][size] like this
+// void flip(int n, int arr[n][n])
+// if arr is statically declared like arr[n][n] in main 
+// then we can't declare it in function call like this void flip(int n, int **arr)
+// cause this a pointer type and in main it arr type

@@ -62,3 +62,10 @@
 // if arr is statically declared like arr[n][n] in main 
 // then we can't declare it in function call like this void flip(int n, int **arr)
 // cause this a pointer type and in main it arr type
+
+// scanf doesn't take input after space in string but it ignores spaces, newline and tabs integers
+// scanf("%d %d",&c,&r);
+// or
+// scanf("%d", &r);
+// scanf("%d",&c);
+// these above two both work in same way no difference whether take input as newline or spaced

@@ -7,7 +7,13 @@ void invert(int n, int arr[n][n], int r, int c) {
   } else {
     arr[r][c] = 0;
   }
-  printf("invert called\n");
+  // for (int i = 1; i <= n; i++) {
+  //   for (int j = 1; j <= n; j++) {
+  //     printf("%d ", arr[i][j]);
+  //   }
+  //   printf("\n");
+  // }
+  // printf("invert called\n");
 }
 void flip(int n, int arr[n][n]) {
   int start = 1;
@@ -21,7 +27,13 @@ void flip(int n, int arr[n][n]) {
     start++;
     end--;
   }
-  printf("flip called\n");
+  // for (int i = 1; i <= n; i++) {
+  //   for (int j = 1; j <= n; j++) {
+  //     printf("%d ", arr[i][j]);
+  //   }
+  //   printf("\n");
+  // }
+  // printf("flip called\n");
 }
 void rotate(int n, int arr[n][n]) {
   for (int i = 1; i <= n; i++) {
@@ -32,6 +44,12 @@ void rotate(int n, int arr[n][n]) {
     }
   }
   flip(n, arr);
+  // for (int i = 1; i <= n; i++) {
+  //   for (int j = 1; j <= n; j++) {
+  //     printf("%d ", arr[i][j]);
+  //   }
+  //   printf("\n");
+  // }
 }
 int main() {
   int n;
@@ -57,6 +75,10 @@ int main() {
     if (k == 1) {
       int r, c;
       scanf("%d %d", &r, &c);
+      if(r>n||c>n){
+        printf("Invalid");
+        return 0;
+      }
       invert(n, arr, r, c);
     }
     if (k == 2) {

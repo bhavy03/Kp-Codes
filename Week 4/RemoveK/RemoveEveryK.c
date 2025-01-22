@@ -98,3 +98,28 @@ int main()
     display(head);
     return 0;
 }
+
+// this is better and simple way to do deletion by pointing one ptr to NULL
+// and make a prev and ptr,and use one for deletion and other for checking
+// and use both pointers aage peeche not ek saath
+// node* removeElement(node* head, int k, int count){
+//     node* temp = head;
+//     node* prev = NULL;
+//     int index =1;
+    
+//     while(temp != NULL){
+//         if(index % k == 0){
+//             node* remove = temp;
+//             prev->next = temp->next;
+//             free(remove);
+//             temp = prev->next;
+//             index++;
+//         }
+//         else{
+//             prev= temp;
+//             temp= temp->next;
+//             index++;
+//         }
+//        }
+//     return head;
+// }

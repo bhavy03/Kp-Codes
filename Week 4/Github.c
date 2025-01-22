@@ -73,6 +73,7 @@ void display(struct Node *head) {
   while (ptr != NULL) {
     printf("%d ", ptr->data);
     ptr = ptr->next;
+    // &ptr->data it will print address of data
   }
 }
 

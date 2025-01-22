@@ -59,7 +59,7 @@
 // if in static 2D array function declaration the size of arr is not known
 // then we have to first write int size then int arr[][size] like this
 // void flip(int n, int arr[n][n])
-// if arr is statically declared like arr[n][n] in main 
+// if arr is statically declared like arr[n][n] in main
 // then we can't declare it in function call like this void flip(int n, int **arr)
 // cause this a pointer type and in main it arr type
 
@@ -71,19 +71,19 @@
 // these above two both work in same way no difference whether take input as newline or spaced
 
 // In C, when you pass a pointer (e.g., struct Node *head) to a function, the function receives a copy of the pointer,
-// not the actual pointer from the calling function. So, when you modify the pointer inside the function, 
+// not the actual pointer from the calling function. So, when you modify the pointer inside the function,
 // you only modify the copy of the pointer within the function scope, not the original pointer in main.
-// Even though you modify the content of the node (e.g., ptr->data), 
+// Even though you modify the content of the node (e.g., ptr->data),
 // the head pointer in main doesn't get updated to the new node unless you return the modified pointer back to main.
 
-// Why the copy happens: In C, when you pass a pointer to a function, 
-// you are passing the value of the pointer (not the address of the original pointer). 
-// So inside the function, you're working with a local copy of the pointer. 
-// Any change to the pointer itself (e.g., changing where it points) 
+// Why the copy happens: In C, when you pass a pointer to a function,
+// you are passing the value of the pointer (not the address of the original pointer).
+// So inside the function, you're working with a local copy of the pointer.
+// Any change to the pointer itself (e.g., changing where it points)
 // won't affect the original pointer unless you return it and assign it back in main.
 
 // here is the example
-// setting ptr = NULL within the function only affects the local copy of the pointer. 
+// setting ptr = NULL within the function only affects the local copy of the pointer.
 // The original pointer p in main remains unchanged.
 // void modifyPointer(int *ptr) {
 //     *ptr = 10; // Modify the value pointed to by the pointer
@@ -91,10 +91,10 @@
 // }
 // int main() {
 //     int x = 5;
-//     int *p = &x; 
+//     int *p = &x;
 //     printf("Before: x = %d, p = %p\n", x, p);
 //     modifyPointer(p);
-//     printf("After: x = %d, p = %p\n", x, p); 
+//     printf("After: x = %d, p = %p\n", x, p);
 //     Before: x = 5, p = 0x7ffeefbff58c
 //     After: x = 10, p = 0x7ffeefbff58c
 //     return 0;
@@ -113,6 +113,23 @@
 //     printf("%d",**ptr);
 // }
 // int x = 5,z =12;
-// int *p = &x; 
+// int *p = &x;
 // int *k = &z;
 // modifyPointer(&p,&k);
+
+// this is to take input as integers
+// int main()
+// {
+// int num = 0;
+// while (scanf("%d", &num) == 1)
+// {
+// printf("%d", num);
+// Check if the next character is a newline or space
+// if (getchar() == '\n')
+// {
+// break;
+// }
+// }
+// printf("hello");
+// return 0;
+// }

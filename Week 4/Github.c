@@ -147,6 +147,8 @@ struct Node *deleteAtPosition(struct Node *head, int pos) {
   struct Node *ptr = head;
   int index = 1;
 
+  // this ptr!=NULL condition helps us preventing to go 
+  // on index after length of node.
   while (ptr != NULL && index < pos - 1) {
     ptr = ptr->next;
     index++;

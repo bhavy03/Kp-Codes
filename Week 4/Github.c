@@ -150,6 +150,7 @@ struct Node *deleteAtPosition(struct Node *head, int pos) {
 
   // this ptr!=NULL condition helps us preventing to go 
   // on index after length of node.
+  // take this as if any of the condition is false then the loop will break
   while (ptr != NULL && index < pos - 1) {
     ptr = ptr->next;
     index++;

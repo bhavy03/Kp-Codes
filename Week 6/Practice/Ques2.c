@@ -159,3 +159,183 @@
 //     print(arr, 3);
 //     return 0;
 // }
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// typedef struct Stack
+// {
+//     int *arr;
+//     int top;
+//     int size;
+//     int bottom;
+// } Stack;
+// int isFull(Stack *s)
+// {
+//     // printf("%d %d", s->top, s->size);
+//     return (s->top == s->size - 1);
+// }
+// void push(Stack *s, int value)
+// {
+//     if (isFull(s))
+//     {
+//         printf("Can't push the values\n");
+//         return;
+//     }
+//     else
+//     {
+//         if (s->bottom == -1)
+//         {
+//             s->bottom = 0;
+//         }
+//         s->top++;
+//         s->arr[s->top] = value;
+//     }
+//     return;
+// }
+// int isEmpty(Stack *s)
+// {
+//     return s->bottom == -1;
+// }
+// int pop(Stack *s)
+// {
+//     if (isEmpty(s))
+//     {
+//         printf("Can't pop further\n");
+//         return 0;
+//     }
+//     else
+//     {
+//         int poppedValue = s->arr[s->bottom];
+//         s->bottom++;
+//         return poppedValue;
+//     }
+// }
+// void display(Stack *s)
+// {
+//     if (isEmpty(s))
+//     {
+//         printf("Stack is empty\n");
+//     }
+//     else
+//     {
+//         for (int i = s->bottom; i <= s->top; i++)
+//         {
+//             printf("%d ", s->arr[i]);
+//         }
+//     }
+// }
+// int main()
+// {
+//     Stack *s = (Stack *)malloc(sizeof(Stack));
+//     s->top = -1;
+//     s->size = 20;
+//     s->bottom = -1;
+//     s->arr = (int *)malloc(s->size * sizeof(int));
+//     int value;
+//     while ((scanf("%d", &value)) == 1)
+//     {
+//         push(s, value);
+//         if (getchar() == '\n')
+//         {
+//             break;
+//         }
+//     }
+//     display(s);
+//     printf("\n");
+//     int data = pop(s);
+//     printf("Popped Value %d\n", data);
+//     data = pop(s);
+//     printf("Popped Value %d\n", data);
+//     data = pop(s);
+//     printf("Popped Value %d\n", data);
+//     display(s);
+//     free(s->arr);
+//     free(s);
+// }
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct Stack
+{
+    char *string;
+    int top;
+    int size;
+} Stack;
+
+void push(Stack *s, char c)
+{
+    if (s->top == s->size - 1)
+    {
+        return;
+    }
+    else
+    {
+        s->top++;
+        s->string[s->top] = c;
+    }
+}
+
+char pop(Stack *s)
+{
+    if (s->top == -1)
+    {
+        return '\0';
+    }
+    char poppedChar = s->string[s->top];
+    s->top--;
+    return poppedChar;
+}
+
+int main()
+{
+    char exp[100];
+    scanf("%[^\n]%*c", exp);
+
+    Stack *s = (Stack *)malloc(sizeof(Stack));
+    s->top = -1;
+    s->size = strlen(exp);
+    s->string = (char *)malloc((s->size + 1) * sizeof(char));
+    int flag = 1;
+    char *str = exp;
+    while (*str != '\0')
+    {
+        char c = *str;
+
+        if (c == ')' || c == '}' || c == ']')
+        {
+            if (s->top == -1)
+            {
+                flag = 0;
+                break;
+            }
+            char popped = pop(s);
+            if ((popped == '(' && c != ')') ||
+                (popped == '{' && c != '}') ||
+                (popped == '[' && c != ']'))
+            {
+                flag = 0;
+                break;
+            }
+        }
+        else if (c == '(' || c == '{' || c == '[')
+        {
+            push(s, c);
+        }
+        str++;
+    }
+
+    if (flag == 1 && s->top == -1)
+    {
+        printf("True\n");
+    }
+    else
+    {
+        printf("False\n");
+    }
+
+    free(s->string);
+    free(s);
+
+    return 0;
+}

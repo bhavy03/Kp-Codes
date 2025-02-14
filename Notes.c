@@ -159,3 +159,49 @@
 //     print(arr, 3);
 //     return 0;
 // }
+
+// this is also word formation
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+// int main()
+// {
+//     char wordArr[20][100];
+//     char *wordArr[20];
+//     int wordCount = 0;
+//     char exp1[100];
+//     while (scanf("%s", exp1) == 1)
+//     {
+//         wordArr[wordCount] = (char *)malloc((strlen(exp1) + 1) * sizeof(char));
+//         strcpy(wordArr[wordCount], exp1);
+//         wordCount++;
+//         if (getchar() == '\n')
+//             break;
+//         if (wordCount >= 20)
+//             break;
+//     }
+//     for (int i = 0; i < wordCount; i++)
+//     {
+//         printf("%s\n", wordArr[i]);
+//     }
+//     return 0;
+// }
+
+// this is to take input like this and parse it "alice", 123
+// int main()
+// {
+//     char exp[100];
+//     // add("Alice", 12345)
+//     char exp1[100];
+//     int num;
+//     scanf("%[^\n]%*c",exp);
+//     sscanf(exp,"\"%[^\"]\", %d",exp1,&num);
+//     printf("%s %d",exp1,num);
+//     char s[] = "3 red balls 2 blue balls";
+//     char str[10], str2[10];
+//     int i;
+//     %*s is used to skip a word
+//     sscanf(s, "%d %*s %*s %*s %s %s", &i, str, str2);
+//     printf("%d %s %s \n", i, str, str2);
+//     return 0;
+// }
